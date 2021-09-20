@@ -6,6 +6,7 @@ package com.ss.dayfive.assignment4;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Colin Bradshaw
@@ -18,19 +19,17 @@ public class NoX {
 	 */
 	public static void main(String[] args) {
 		List<String> l1 = Arrays.asList("Saxaphone", "Xtol", "reprieve", "XxX");
-		RemoveX rx = (i) ->{
-			ArrayList<String> ret = new ArrayList<String>();
-			for(String s: i) {
-				String store = "";
-				store = s.replace("X", "");
-				store = store.replace("x", "");
-				ret.add(store);
-			}
-			return ret;
-		};
-		for(String s: rx.removeX(l1)) {
-			System.out.println(s);
-		}
+		
+		List<String> l2 = l1.stream().map((s) -> {
+			// replace both cases of 'x'
+			s = s.replace("X", "");
+			s = s.replace("x", "");
+			return s;
+			// collect to list
+		}).collect(Collectors.toList());
+		// print
+		System.out.println(l2.toString());
+				
 	}
 
 }
