@@ -22,8 +22,11 @@ public class RecursiveSumClump {
 		
 	}
 	
-	// problem states a single loop may be used to identify the extent of consecutive duplicate values
-	// this method modifies the provided array by replacing consecutive duplicate values with their sum
+	/*
+	 * problem states a single loop may be used to identify the extent of consecutive duplicate values
+	 * this method modifies the provided array by replacing consecutive duplicate values with their sum
+	 * overall, this can greatly reduce the complexity for the next part of the program
+	 */
 	public int[] identicalValues(int[] a) {
 		int[] store = new int[a.length];
 		// used to keep track of previous number
